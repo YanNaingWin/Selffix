@@ -43,7 +43,6 @@
             android:id="@+id/post_traffic_report_btn"
             android:layout_width="100sp"
             android:layout_height="100sp"
-            android:background="@drawable/circle_shape"
             android:text="Report"
             android:textColor="@color/white"
             android:textSize="18sp" />
