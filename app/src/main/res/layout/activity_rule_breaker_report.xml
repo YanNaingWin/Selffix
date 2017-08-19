@@ -8,113 +8,134 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
-        android:src="@drawable/camera1"
         android:id="@+id/imageView"
         android:layout_width="300sp"
         android:layout_height="200sp"
         android:layout_gravity="center"
-        android:layout_marginTop="20sp" />
+        android:layout_marginTop="20sp"
+        android:src="@drawable/camera" />
 
     <RadioGroup
+        android:id="@+id/problem_rbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp">
 
     <RadioButton
+        android:id="@+id/problem_rbtn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Car tite mhu" />
+        android:text="@string/accident" />
 
     <RadioButton
+        android:id="@+id/problem_rbtn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="phyu ne kyr yat mhu" />
+        android:text="ျဖဴနီၾကားယာဥ္ရပ္မွဳ" />
 
     <RadioButton
+        android:id="@+id/problem_rbtn3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="myin tay kwy. mhu" />
+        android:text="မီးနီျဖတ္မွဳ" />
 
     <RadioButton
+        android:id="@+id/problem_rbtn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Other" />
+        android:text="အျခားအမွဳ" />
     </RadioGroup>
     <EditText
-        android:hint="acident_plaace"
+        android:padding="10sp"
+        android:id="@+id/problem"
+        android:hint="problem"
+        android:layout_margin="10sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/editText"
+        android:padding="10sp"
+        android:layout_margin="10sp"
+        android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="problem" />
+        android:hint="ျဖစ္စဥ္ေနရာ" />
 
 
     <LinearLayout
+        android:padding="10sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:padding="5sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="120sp"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:text="တိုင္ၾကားသူအမည္" />
 
             <TextView
+                android:paddingLeft="10sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:padding="5sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="120sp"
                 android:layout_height="wrap_content"
-                android:text="Date" />
+                android:text="ေနစြဲ" />
 
             <TextView
+                android:id="@+id/date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date" />
+                android:paddingLeft="10sp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:padding="5sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="120sp"
                 android:layout_height="wrap_content"
-                android:text="time" />
+                android:text="အခ်ိန္" />
 
             <TextView
+                android:id="@+id/time_for_carreport"
                 android:layout_width="wrap_content"
+                android:paddingLeft="10sp"
                 android:layout_height="wrap_content"
-                android:text="time" />
+                />
 
         </LinearLayout>
 
 
     </LinearLayout>
     <Button
-        android:text="Report"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_submit_rectangle"
+        android:id="@+id/report_btn"
+        android:text="တိုင္ၾကားမည္"
         android:layout_gravity="center"
         android:layout_width="200sp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"/>
 
 
 </LinearLayout>

@@ -6,19 +6,20 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by user on 8/19/17.
+ * Created by kyawthetwin on 8/19/17.
  */
-public class TrafficReportData {
+
+public class CarReportUploadArray {
 
     @SerializedName("data")
     @Expose
-    private List<TrafficReportSingleData> data = null;
+    private List<CarReportUpload> data = null;
 
-    public List<TrafficReportSingleData> getData() {
+    public List<CarReportUpload> getData() {
         return data;
     }
 
-    public void setData(List<TrafficReportSingleData> data) {
+    public void setData(List<CarReportUpload> data) {
         this.data = data;
     }
 

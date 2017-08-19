@@ -30,7 +30,7 @@ public class TrafficReportAdapter extends RecyclerView.Adapter<TrafficReportAdap
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        holder.userName.setText(carReportSingleDataList.get(position).getUsername());
+      /*  holder.userName.setText(carReportSingleDataList.get(position).getUsername());*/
         holder.time.setText(carReportSingleDataList.get(position).getTime());
 
         int condition = carReportSingleDataList.get(position).getCondition();

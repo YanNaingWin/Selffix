@@ -4,14 +4,20 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by user on 8/19/17.
+ * Created by kyawthetwin on 8/20/17.
  */
 
-public class TrafficReportSingleData {
+public class TrafficData {
 
-    @SerializedName("user_id")
+    @SerializedName("id")
     @Expose
-    private Integer userId;
+    private Integer id;
+    @SerializedName("username")
+    @Expose
+    private String username;
+    @SerializedName("phone_no")
+    @Expose
+    private String phoneNo;
     @SerializedName("date")
     @Expose
     private String date;
@@ -25,12 +31,28 @@ public class TrafficReportSingleData {
     @Expose
     private Integer condition;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     public String getDate() {
