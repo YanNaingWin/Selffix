@@ -20,6 +20,9 @@ public class TrafficReportData {
 
     public void setData(List<TrafficReportSingleData> data) {
         this.data = data;
+
     }
+
+
 
 }

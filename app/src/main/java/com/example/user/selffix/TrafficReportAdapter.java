@@ -19,7 +19,11 @@ import java.util.List;
 public class TrafficReportAdapter extends RecyclerView.Adapter<TrafficReportAdapter.MyViewHolder> {
 
     Context context;
-    private List<TrafficReportSingleData> carReportSingleDataList;
+
+    public TrafficReportAdapter(Context context) {
+        this.context = context;
+    }
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,18 +34,32 @@ public class TrafficReportAdapter extends RecyclerView.Adapter<TrafficReportAdap
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-      /*  holder.userName.setText(carReportSingleDataList.get(position).getUsername());*/
-        holder.time.setText(carReportSingleDataList.get(position).getTime());
 
-        int condition = carReportSingleDataList.get(position).getCondition();
+        if (position == 1){
 
-        if (condition == 1){
+            holder.address.setText("Hletan");
+            holder.userName.setText("U Myo Myint");
+            holder.conditionImgView.setImageResource(R.drawable.red_circle_shape);
+            holder.time.setText("12:00");
 
         }
-        else if (condition == 2){
+        else if (position == 2){
+
+
+            holder.address.setText("San Chaung");
+            holder.userName.setText("U Htoo Htoo");
+            holder.conditionImgView.setImageResource(R.drawable.green_circle_shape);
+            holder.time.setText("1:30");
+
 
 
         }else {
+
+
+            holder.address.setText("Latha");
+            holder.userName.setText("Daw Hla Hla");
+            holder.conditionImgView.setImageResource(R.drawable.yellow_circle_shape);
+            holder.time.setText("3:00");
 
 
         }
@@ -49,7 +67,7 @@ public class TrafficReportAdapter extends RecyclerView.Adapter<TrafficReportAdap
 
     @Override
     public int getItemCount() {
-        return 7;
+        return 3;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

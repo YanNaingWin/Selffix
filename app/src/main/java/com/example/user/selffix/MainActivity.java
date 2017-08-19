@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Integer> namelist = new ArrayList<>();
 
+    RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
         bmb = (BoomMenuButton) findViewById(R.id.bmb);
         setBmb();
+
+        recyclerView = (RecyclerView) findViewById(R.id.traffic_recyclerView);
+        LinearLayoutManager linearlayoutmanager = new LinearLayoutManager(getApplicationContext());
+        linearlayoutmanager.setOrientation(LinearLayoutManager.VERTICAL);
+        TrafficReportAdapter carReportListAdpter = new TrafficReportAdapter(getApplicationContext());
+        carReportListAdpter.notifyDataSetChanged();
+        recyclerView.setAdapter(carReportListAdpter);
+        recyclerView.setLayoutManager(linearlayoutmanager);
+        recyclerView.setHasFixedSize(true);
 
     }
 
