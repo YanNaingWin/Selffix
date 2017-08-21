@@ -1,12 +1,17 @@
 package com.example.user.selffix;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.example.user.selffix.RestfullApi.ApiService;
 import com.example.user.selffix.model.TrafficReportData;
@@ -39,6 +44,9 @@ public class TrafficReportActivity extends AppCompatActivity {
     String currentTime;
     Calendar c;
     String Ac_adressText;
+    ImageView red_btn;
+    Toolbar traffic_report_toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,9 @@ public class TrafficReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_traffic_report);
         geocoder = new Geocoder(getApplicationContext(), Locale.ENGLISH);
         findViewById();
+
+
+        setUpDefaultToolBar(traffic_report_toolbar);
 
         c = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
@@ -56,6 +67,14 @@ public class TrafficReportActivity extends AppCompatActivity {
         current_Date = df.format(c.getTime());
 
 
+        red_btn = (ImageView) findViewById(R.id.red_btn);
+        red_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                red_btn.setImageResource(R.drawable.selected);
+            }
+        });
         post_traffic_report_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +87,28 @@ public class TrafficReportActivity extends AppCompatActivity {
 
                 uploadTrafficReport();
 
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TrafficReportActivity.this);
+
+                // set title
+                alertDialogBuilder.setTitle("တိုင္ၾကားမွဳေအာင္ျမင္ပါသည္");
+
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage(R.string.thankyou)
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent i = new Intent(TrafficReportActivity.this,MainActivityFake.class);
+                                startActivity(i);
+                            }
+                        });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
             }
 
         });
@@ -76,6 +117,24 @@ public class TrafficReportActivity extends AppCompatActivity {
     private void findViewById() {
 
         post_traffic_report_btn = (Button) findViewById(R.id.post_traffic_report_btn);
+        traffic_report_toolbar = (Toolbar) findViewById(R.id.traffic_report_toolbar);
+    }
+    protected void setUpDefaultToolBar(Toolbar toolBar) {
+        setSupportActionBar(toolBar);
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayUseLogoEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        toolBar.setNavigationIcon(R.drawable.left_arrow_white);
+        toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void getGeoCode() throws IOException {
@@ -85,7 +144,7 @@ public class TrafficReportActivity extends AppCompatActivity {
         addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
 
         Ac_adressText = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-        Toast.makeText(getApplicationContext(),Ac_adressText,Toast.LENGTH_SHORT).show();
+
 
 
 
@@ -119,8 +178,8 @@ public class TrafficReportActivity extends AppCompatActivity {
 
                     if (response.body().getStatusCode()==200){
 
-                        String toast=response.body().getStatusMessage();
-                        Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_SHORT).show();
+//                        String toast=response.body().getStatusMessage();
+//                        Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -129,7 +188,7 @@ public class TrafficReportActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TrafficReportReponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "failed", Toast.LENGTH_SHORT).show();
+
             }
         });
 

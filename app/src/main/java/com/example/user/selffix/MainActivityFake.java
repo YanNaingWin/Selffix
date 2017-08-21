@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import static com.nightonke.boommenu.ButtonEnum.Ham;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityFake extends AppCompatActivity {
 
     BoomMenuButton bmb;
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_fake);
 
         bmb = (BoomMenuButton) findViewById(R.id.bmb_fake);
         setBmb();
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.traffic_recyclerView_fake);
         LinearLayoutManager linearlayoutmanager = new LinearLayoutManager(getApplicationContext());
         linearlayoutmanager.setOrientation(LinearLayoutManager.VERTICAL);
-        TrafficReportAdapter carReportListAdpter = new TrafficReportAdapter(getApplicationContext());
+        TrafficReportAdapterFake carReportListAdpter = new TrafficReportAdapterFake(getApplicationContext());
         carReportListAdpter.notifyDataSetChanged();
         recyclerView.setAdapter(carReportListAdpter);
         recyclerView.setLayoutManager(linearlayoutmanager);
@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = null;
                 Log.i("index", index + "");
                 if (index == 0) {
-                    intent = new Intent(MainActivity.this, RuleBreakerReportActivity.class);
+                    intent = new Intent(MainActivityFake.this, RuleBreakerReportActivity.class);
                 } else if (index == 1) {
-                    intent = new Intent(MainActivity.this, TrafficReportActivity.class);
+                    intent = new Intent(MainActivityFake.this, TrafficReportActivity.class);
                 }
-                MainActivity.this.startActivity(intent);
+                MainActivityFake.this.startActivity(intent);
             }
         })
                 .normalColor(Color.WHITE)

@@ -2,6 +2,6 @@
     <string name="app_name">Selffix</string>
     <string name="name1">ယာဥ္တိုင္ၾကားမွဳ</string>
     <string name="name2">ယာဥ္လမ္းေၾကာ</string>
-    <string name="accident" ><font color="#ffff0000">"ယာဥ္တိုက္မွဳ"</font></string>
+    <string name="accident"><font color="#ffff0000">"ယာဥ္တိုက္မွဳ"</font></string>
     <string name="thankyou"><font color="#16578e">"ပူးေပါင္းေဆာင္ရြက္မွဳအတြက္ေက်းဇူးတင္ပါသည္"</font></string>
 </resources>

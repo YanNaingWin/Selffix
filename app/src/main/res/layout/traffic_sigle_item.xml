@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.v7.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_margin="10sp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
         <LinearLayout
@@ -18,10 +14,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:padding="10dp">
 
 
             <TextView
+                android:textStyle="bold"
+                android:textSize="30sp"
                 android:id="@+id/address_singleItemView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,9 +27,11 @@
 
 
             <ImageView
+                android:elevation="10sp"
                 android:id="@+id/imageView_singleItemView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10sp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/red_circle_shape"/>
 
@@ -43,13 +43,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/reporter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pay Po Thu : "/>
+                    android:text="သတင္းပို႔သူ "/>
 
 
                 <TextView
@@ -64,6 +64,7 @@
                 <TextView
                     android:id="@+id/time_singleItemView"
                     android:layout_width="wrap_content"
+                    android:layout_marginRight="10sp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="12:00"/>
@@ -75,5 +76,3 @@
     </android.support.v7.widget.CardView>
 
 
-
-</LinearLayout>

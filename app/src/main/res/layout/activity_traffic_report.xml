@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.example.user.selffix.TrafficReportActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/traffic_report_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingRight="16dp">
+
+
+        <ImageView
+            android:id="@+id/btnClose_newRequest2"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_margin="2sp"
+            android:src="@drawable/sf1" />
+
+
+        <ImageView
+            android:id="@+id/toolBarTitle_newRequest2"
+            android:layout_width="100sp"
+            android:layout_height="30sp"
+            android:src="@drawable/sftext" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:padding="20sp"
@@ -58,7 +89,7 @@
             android:orientation="vertical">
             <ImageView
                 android:src="@drawable/red1"
-
+                android:id="@+id/red_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="60sp" />
             <TextView
@@ -89,5 +120,5 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

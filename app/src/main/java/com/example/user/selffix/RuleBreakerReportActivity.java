@@ -3,8 +3,10 @@ package com.example.user.selffix;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -50,17 +52,20 @@ public class RuleBreakerReportActivity extends AppCompatActivity {
     String Problem_condition;
     String current_Date;
     String param_Data;
+    Toolbar rule_report_toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rule_breaker_report);
-
+        rule_report_toolbar = (Toolbar) findViewById(R.id.rule_report_toolbar);
+        setUpDefaultToolBar(rule_report_toolbar);
         problem = (EditText) findViewById(R.id.problem);
         problem.setVisibility(View.GONE);
         problem_rbtn = (RadioGroup) findViewById(R.id.problem_rbtn);
         date_text = (TextView) findViewById(R.id.date_text);
+
 
 
         Ac_Adress = (EditText) findViewById(R.id.address);
@@ -162,6 +167,23 @@ public class RuleBreakerReportActivity extends AppCompatActivity {
             Problem_condition = String.valueOf(btn.getText());
         }
 
+    }
+    protected void setUpDefaultToolBar(Toolbar toolBar) {
+        setSupportActionBar(toolBar);
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayUseLogoEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        toolBar.setNavigationIcon(R.drawable.left_arrow_white);
+        toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void uploadCarReport() {
